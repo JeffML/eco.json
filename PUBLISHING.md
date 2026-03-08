@@ -1,6 +1,6 @@
 # NPM Publishing Setup
 
-This package uses GitHub Actions + npm OIDC Trusted Publishing (no stored NPM_TOKEN needed for auth).
+This package publishes via GitHub Actions using a **granular access token** (`NPM_TOKEN`) stored as a GitHub Actions secret. Provenance (`--provenance`) is also generated via OIDC.
 
 ## How It Works
 
@@ -10,37 +10,48 @@ It can also be triggered manually via **Actions → Publish to NPM → Run workf
 The workflow:
 1. Builds and type-checks the package
 2. Compares `package.json` version to the current npm version — skips publish if unchanged
-3. Fetches a GitHub OIDC token (audience: `npmjs`) and uses it as `NODE_AUTH_TOKEN`
-4. Publishes with `--provenance --access public`
-5. Creates a git tag for the release
+3. Publishes with `--provenance --access public` using `NODE_AUTH_TOKEN`
+4. Creates a git tag for the release
 
-## npm Trusted Publisher Configuration
+## NPM_TOKEN Setup
+
+The `NPM_TOKEN` secret in GitHub must be a **granular access token** from npmjs.com:
+
+1. npmjs.com → avatar → **Access Tokens** → **Generate New Token** → **Granular Access Token**
+2. Scope: `@chess-openings` org (or specifically `@chess-openings/eco.json`)
+3. Permission: **Read and write** (publish)
+4. Leave **"Require 2FA"** unchecked — required for automation
+5. Save the token to GitHub repo → **Settings** → **Secrets and variables** → **Actions** → `NPM_TOKEN`
+
+## Trusted Publisher Configuration (for provenance only)
 
 On [npmjs.com](https://www.npmjs.com/package/@chess-openings/eco.json) → **Settings**:
 
-| Field | Value |
-|---|---|
-| Publisher | GitHub Actions |
-| Organization or user | `JeffML` |
-| Repository | `eco.json` |
-| Workflow filename | `publish.yml` |
-| Environment | *(blank)* |
+| Field                | Value          |
+| -------------------- | -------------- |
+| Publisher            | GitHub Actions |
+| Organization or user | `JeffML`       |
+| Repository           | `eco.json`     |
+| Workflow filename    | `publish.yml`  |
+| Environment          | _(blank)_      |
 
-**Critical**: The repository field must match the GitHub repo exactly (case-sensitive: `JeffML`, not `jeffml`).
+**Note**: The trusted publisher config is for provenance attestation only. Actual publish authorization uses `NPM_TOKEN`. Both are required.
 
 ## Troubleshooting
 
-**E404 Not Found** — OIDC token mismatch. Verify the trusted publisher config above matches exactly.  
-Confirm by checking the sigstore transparency log URL from the failed run: `Source Repository Owner URI` must be `https://github.com/JeffML`.
+**E404 Not Found** — Usually an auth failure disguised as a 404. Check that `NPM_TOKEN` is set correctly and the granular token has publish access to `@chess-openings`.
 
-**EOTP (one-time password required)** — `NODE_AUTH_TOKEN` was set to a classic npm token. Remove it and let OIDC handle auth. The `setup-node` registry-url config alone is not enough — must explicitly fetch the OIDC token with audience `npmjs` (see publish step in `publish.yml`).
+**EOTP (one-time password required)** — The token type requires 2FA. Create a new granular access token without the 2FA requirement (see NPM_TOKEN Setup above).
 
 **Version unchanged / publish skipped** — The workflow only publishes when `package.json` version differs from the published npm version. Bump the version before triggering.
 
 **Workflow not triggered on push** — Only runs when `package.json`, `src/**`, or `methods/**` changes. Pushing workflow file changes alone won't trigger it — use `workflow_dispatch` instead.
+
+**"Run workflow" button missing** — The workflow file has a syntax error on the default branch. Validate the YAML and push a fix.
 
 ## Releasing a New Version
 
 1. Bump version in `package.json`
 2. Commit and push (triggers workflow automatically), or trigger manually via Actions tab
 3. Create a GitHub Release with the matching tag and release notes
+
