@@ -4,15 +4,12 @@ This package publishes via GitHub Actions using a **granular access token** (`NP
 
 ## How It Works
 
-Publishing is triggered automatically when `package.json`, `src/**`, or `methods/**` changes are pushed to `master`.  
-It can also be triggered manually via **Actions → Publish to NPM → Run workflow**.
+Publishing is triggered by pushing a `v*` git tag. It can also be triggered manually via **Actions → Publish to NPM → Run workflow**.
 
 The workflow:
 
 1. Builds and type-checks the package
-2. Compares `package.json` version to the current npm version — skips publish if unchanged
-3. Publishes with `--provenance --access public` using `NODE_AUTH_TOKEN`
-4. Creates a git tag for the release
+2. Publishes with `--provenance --access public` using `NODE_AUTH_TOKEN`
 
 ## NPM_TOKEN Setup
 
@@ -49,12 +46,18 @@ On [npmjs.com](https://www.npmjs.com/package/@chess-openings/eco.json) → **Set
 
 **Version unchanged / publish skipped** — The workflow only publishes when `package.json` version differs from the published npm version. Bump the version before triggering.
 
-**Workflow not triggered on push** — Only runs when `package.json`, `src/**`, or `methods/**` changes. Pushing workflow file changes alone won't trigger it — use `workflow_dispatch` instead.
+**Workflow not triggered** — Publishing only fires on `v*` tag pushes. Use `workflow_dispatch` for a manual trigger.
 
 **"Run workflow" button missing** — The workflow file has a syntax error on the default branch. Validate the YAML and push a fix.
 
 ## Releasing a New Version
 
 1. Bump version in `package.json`
-2. Commit and push (triggers workflow automatically), or trigger manually via Actions tab
-3. Create a GitHub Release with the matching tag and release notes
+2. Commit the change: `git commit -am "chore: bump version to vX.Y.Z"`
+3. Create and push the tag:
+   ```bash
+   git tag vX.Y.Z
+   git push --follow-tags
+   ```
+4. The workflow fires automatically on the tag push and publishes to npm
+5. Optionally create a GitHub Release for the tag with release notes
