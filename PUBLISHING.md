@@ -8,6 +8,7 @@ Publishing is triggered automatically when `package.json`, `src/**`, or `methods
 It can also be triggered manually via **Actions → Publish to NPM → Run workflow**.
 
 The workflow:
+
 1. Builds and type-checks the package
 2. Compares `package.json` version to the current npm version — skips publish if unchanged
 3. Publishes with `--provenance --access public` using `NODE_AUTH_TOKEN`
@@ -21,7 +22,8 @@ The `NPM_TOKEN` secret in GitHub must be a **granular access token** from npmjs.
 2. Scope: `@chess-openings` org (or specifically `@chess-openings/eco.json`)
 3. Permission: **Read and write** (publish)
 4. Leave **"Require 2FA"** unchecked — required for automation
-5. Save the token to GitHub repo → **Settings** → **Secrets and variables** → **Actions** → `NPM_TOKEN`
+5. Set expiry to **90 days** (maximum allowed) — **set a calendar reminder to renew before expiry**
+6. Save the token to GitHub repo → **Settings** → **Secrets and variables** → **Actions** → `NPM_TOKEN`
 
 ## Trusted Publisher Configuration (for provenance only)
 
@@ -39,7 +41,9 @@ On [npmjs.com](https://www.npmjs.com/package/@chess-openings/eco.json) → **Set
 
 ## Troubleshooting
 
-**E404 Not Found** — Usually an auth failure disguised as a 404. Check that `NPM_TOKEN` is set correctly and the granular token has publish access to `@chess-openings`.
+**E404 Not Found** — Usually an auth failure disguised as a 404. **First thing to try: regenerate the `NPM_TOKEN` granular access token** (it expires every 90 days) and update the GitHub secret. If that doesn't fix it, check that the token has publish access to `@chess-openings`.
+
+**E401 Unauthorized / ENEEDAUTH** — Token is expired or missing. Regenerate `NPM_TOKEN` (see NPM_TOKEN Setup above) and update the GitHub secret.
 
 **EOTP (one-time password required)** — The token type requires 2FA. Create a new granular access token without the 2FA requirement (see NPM_TOKEN Setup above).
 
@@ -54,4 +58,3 @@ On [npmjs.com](https://www.npmjs.com/package/@chess-openings/eco.json) → **Set
 1. Bump version in `package.json`
 2. Commit and push (triggers workflow automatically), or trigger manually via Actions tab
 3. Create a GitHub Release with the matching tag and release notes
-
