@@ -8,6 +8,8 @@
 [![Bundle Size](https://img.shields.io/badge/minzip-1.0kB-blue)](https://bundlephobia.com/package/@chess-openings/eco.json)
 [![GitHub stars](https://img.shields.io/github/stars/JeffML/eco.json.svg?style=social&label=Star)](https://github.com/JeffML/eco.json)
 
+> **Note**: This is the actively maintained continuation of the original `eco.json` project. The original repository ([hayatbiralem/eco.json](https://github.com/hayatbiralem/eco.json)) has been archived and directs users here.
+
 TypeScript utilities for consuming chess opening data from the eco.json data files.
 
 ## Features
@@ -36,7 +38,7 @@ const openings = await openingBook();
 // Look up an opening by FEN
 const opening = findOpening(
   openings,
-  "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1"
+  "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1",
 );
 
 console.log(opening?.name); // "King's Pawn Opening"
@@ -45,7 +47,7 @@ console.log(opening?.moves); // "1. e4"
 
 // Get next and previous positions
 const { next, from } = await getFromTos(
-  "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1"
+  "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1",
 );
 
 console.log(next[0]?.name); // "Sicilian Defense"
@@ -172,7 +174,7 @@ Compatible libraries: chess.js, @chess-pgn/chess-pgn, and others with similar AP
 ```typescript
 // Many moves deep into a game
 chess.loadPgn(
-  "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3 d6 8. c3 O-O 9. h3 Na5"
+  "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3 d6 8. c3 O-O 9. h3 Na5",
 );
 
 const result = lookupByMoves(chess, openings, { maxMovesBack: 10 });
