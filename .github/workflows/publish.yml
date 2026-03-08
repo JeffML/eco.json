@@ -53,7 +53,10 @@ jobs:
 
       - name: Publish to NPM
         if: steps.version-check.outputs.changed == 'true'
-        run: npm publish --provenance --access public
+        run: |
+          OIDC_TOKEN=$(curl -sS "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=npmjs" \
+            -H "Authorization: bearer ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" | jq -r .value)
+          NODE_AUTH_TOKEN=$OIDC_TOKEN npm publish --provenance --access public
 
       - name: Create Git tag
         if: steps.version-check.outputs.changed == 'true'
