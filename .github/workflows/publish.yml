@@ -25,6 +25,8 @@ jobs:
         with:
           node-version: "18"
           cache: "npm"
+          registry-url: "https://registry.npmjs.org"
+          registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
         run: npm ci
@@ -51,8 +53,14 @@ jobs:
           fi
 
       - name: Publish to NPM
-        if: steps.version-check.outputs.changed == 'true'
-        run: npm publish --provenance --access public
+        if: s|
+          OIDC_TOKEN=$(curl -sS "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=npmjs" \
+            -H "Authorization: bearer ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" | jq -r .value)
+          NODE_AUTH_TOKEN=$OIDC_TOKEN teps.version-check.outputs.changed == 'true'
+        run: |
+          OIDC_TOKEN=$(curl -sS "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=npmjs" \
+            -H "Authorization: bearer ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" | jq -r .value)
+          NODE_AUTH_TOKEN=$OIDC_TOKEN npm publish --provenance --access public
 
       - name: Create Git tag
         if: steps.version-check.outputs.changed == 'true'
