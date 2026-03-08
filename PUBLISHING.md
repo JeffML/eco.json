@@ -52,12 +52,11 @@ On [npmjs.com](https://www.npmjs.com/package/@chess-openings/eco.json) → **Set
 
 ## Releasing a New Version
 
-1. Bump version in `package.json`
-2. Commit the change: `git commit -am "chore: bump version to vX.Y.Z"`
-3. Create and push the tag:
-   ```bash
-   git tag vX.Y.Z
-   git push --follow-tags
-   ```
-4. The workflow fires automatically on the tag push and publishes to npm
-5. Optionally create a GitHub Release for the tag with release notes
+```bash
+npm version patch   # or minor / major — bumps package.json and commits
+git push --follow-tags  # pushes commit + tag, triggers workflow automatically
+```
+
+The workflow fires on the `v*` tag push and publishes to npm. No manual trigger needed.
+
+Optionally create a GitHub Release for the tag with release notes.
