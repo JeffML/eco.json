@@ -6,19 +6,19 @@
  *   - A48 "Queen's Pawn Game: Barry Attack" (also in D00)
  */
 
-import { readFileSync, writeFileSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { readFileSync, writeFileSync } from "fs";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const root = join(__dirname, '..');
-const path = join(root, 'ecoA.json');
+const root = join(__dirname, "..");
+const path = join(root, "ecoA.json");
 
-const data = JSON.parse(readFileSync(path, 'utf8'));
+const data = JSON.parse(readFileSync(path, "utf8"));
 
 const toRemove = [
-  'rnbqkbnr/pp2pppp/2p5/3p4/4P3/2N4P/PPPP1PP1/R1BQKBNR b KQkq - 0 3',
-  'rnbqkb1r/ppp1pp1p/5np1/3p4/3P1B2/2N2N2/PPP1PPPP/R2QKB1R b KQkq - 1 4',
+  "rnbqkbnr/pp2pppp/2p5/3p4/4P3/2N4P/PPPP1PP1/R1BQKBNR b KQkq - 0 3",
+  "rnbqkb1r/ppp1pp1p/5np1/3p4/3P1B2/2N2N2/PPP1PPPP/R2QKB1R b KQkq - 1 4",
 ];
 
 for (const fen of toRemove) {
@@ -30,5 +30,5 @@ for (const fen of toRemove) {
   }
 }
 
-writeFileSync(path, JSON.stringify(data, null, 2) + '\n', 'utf8');
-console.log('Done.');
+writeFileSync(path, JSON.stringify(data, null, 2) + "\n", "utf8");
+console.log("Done.");
