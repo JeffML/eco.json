@@ -19269,7 +19269,8 @@
       "eco_js": "Ruy Lopez, 2. Nf3 Nc6 3. Bb5 a6",
       "chessGraph": "Morphy Defense, Ruy Lopez; C68",
       "icsbot": "Morphy Defense, Ruy Lopez; C68 "
-    }
+    },
+    "isEcoRoot": true
   },
   "r1bqk1nr/1ppp1ppp/p1n5/4p3/Bb2P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 2 5": {
     "src": "eco_tsv",
@@ -19415,8 +19416,7 @@
       "chessGraph": "Morphy Defense, Ruy Lopez; C70",
       "chronos": "Ruy Lopez",
       "icsbot": "Morphy Defense, Ruy Lopez; C70 "
-    },
-    "isEcoRoot": true
+    }
   },
   "r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 2 5": {
     "src": "scid",
@@ -21407,15 +21407,15 @@
       "chessGraph": "Delayed Exchange Ruy Lopez Deferred; C85",
       "chronos": "Ruy Lopez: Exchange variation doubly deferred (DERLD)",
       "icsbot": "Delayed Exchange Ruy Lopez Deferred; C85 "
-    }
+    },
+    "isEcoRoot": true
   },
   "r1bqk2r/1pp1bppp/p1p2n2/4p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 0 7": {
     "src": "scid",
     "eco": "C85",
     "moves": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Bxc6 dxc6",
     "name": "Spanish: Closed, Exchange",
-    "scid": "C85b",
-    "isEcoRoot": true
+    "scid": "C85b"
   },
   "r1bqk2r/1pp1bppp/p1p2n2/4p3/4P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq - 0 7": {
     "src": "scid",

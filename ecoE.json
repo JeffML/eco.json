@@ -362,7 +362,8 @@
     "aliases": {
       "scid": "Catalan: Open",
       "chessGraph": "E02"
-    }
+    },
+    "isEcoRoot": true
   },
   "rnbqkb1r/ppp2ppp/4pn2/8/Q1pP4/6P1/PP2PPBP/RNB1K1NR b KQkq - 1 5": {
     "src": "scid",
@@ -373,8 +374,7 @@
     "aliases": {
       "eco_js": "Catalan Opening: Open Defense, 4. Bg2 dxc4 5. Qa4+",
       "ct": "Catalan Opening, Open Defense"
-    },
-    "isEcoRoot": true
+    }
   },
   "rn1qkb1r/pppb1ppp/4pn2/8/Q1pP4/6P1/PP2PPBP/RNB1K1NR w KQkq - 2 6": {
     "src": "scid",

@@ -6130,7 +6130,8 @@
       "chessGraph": "Exchange Variation, Caro; B13",
       "chronos": "Caro-Kann: exchange variation",
       "icsbot": "Exchange Variation, Caro; B13 "
-    }
+    },
+    "isEcoRoot": true
   },
   "rnbqkbnr/pp2pppp/8/3p4/3P2P1/8/PPP2P1P/RNBQKBNR b KQkq - 0 4": {
     "src": "eco_tsv",
@@ -6271,8 +6272,7 @@
     "eco": "B13",
     "moves": "1. e4 c6 2. d4 d5 3. exd5 cxd5",
     "name": "Caro-Kann: Exchange, 3...cxd5",
-    "scid": "B13b",
-    "isEcoRoot": true
+    "scid": "B13b"
   },
   "rnb1kbnr/pp2pppp/2p5/3q4/3P4/8/PPP2PPP/RNBQKBNR w KQkq - 0 4": {
     "src": "scid",

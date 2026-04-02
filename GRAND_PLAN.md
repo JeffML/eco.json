@@ -62,7 +62,7 @@ D63, D77, D87, E29, E67, E77
 
 ---
 
-## Step 4 — Audit the 14 "different position" SCID roots
+## Step 4 — Audit the 14 "different position" SCID roots ✅ DONE
 
 **Impact:** Low-to-medium — may require moving `isEcoRoot` to a different position
 entirely, or accepting SCID as correct in some cases  
@@ -70,20 +70,34 @@ entirely, or accepting SCID as correct in some cases
 **Scope:** 14 ECO codes where SCID's `isEcoRoot` entry and the eco_tsv candidate
 point to genuinely different board positions (not just transpositions)
 
-**Affected codes:** A79, B13, B54, B56, C01, C32, C70, C77, C85, D01, D56, D89,
+**Initial affected codes:** A79, B13, B54, B56, C01, C32, C70, C77, C85, D01, D56, D89,
 E00, E02
 
-**Key observations from analysis:**
+**Note:** C01 and D01 were already fixed in Step 3 (transpositions); they did not
+require separate action here.
 
-- Some cases: SCID root is a deep subvariation (many moves), eco_tsv has the
-  shallower "real" root for the same code — SCID should lose
-- Other cases: the two entries genuinely represent different ECO interpretations —
-  needs domain knowledge to resolve
-- C01 is notable: SCID root is "French: Exchange, Svenonius Variation" (14 moves),
-  while eco_tsv has "French Defense: Exchange Variation" (8 moves) — clearly SCID
-  should not be root here
+**Case-by-case verdicts:**
 
-**Action:** Manual review of each case. Document resolution rationale. Apply fixes.
+| Code | Verdict | Reason |
+|------|---------|--------|
+| B13 | Move to eco_tsv | SCID root `3...cxd5` is one move too deep; eco_tsv has shallower `3.exd5` |
+| C70 | Move to eco_tsv | SCID root `4.Ba4` (11 moves); eco_tsv has Morphy Defense `3...a6` (9 moves) |
+| C85 | Move to eco_tsv | SCID has `6.Bxc6 dxc6` (18 moves); eco_tsv has `6.Bxc6` (17 moves, one earlier) |
+| E02 | Move to eco_tsv | SCID has `5.Qa4+` (14 moves); eco_tsv has `4...dxc4` (12 moves, shallower) |
+| A79 | Keep SCID | eco_tsv entry at `11.f3` reuses A78's name unchanged; SCID `11.f3 Nc7` introduces the new name |
+| B54 | Keep SCID | SCID root (11 moves) is shallower than all eco_tsv entries (12+ moves) |
+| B56 | Keep SCID | SCID root (14 moves) is shallower than all eco_tsv entries (15+ moves) |
+| C32 | Keep SCID | SCID root (12 moves) is shallower than all eco_tsv entries (14+ moves) |
+| C77 | Keep SCID | SCID root (12 moves) is shallower than all eco_tsv entries (14+ moves) |
+| D56 | Keep SCID | SCID root (20 moves) is shallower than all eco_tsv entries (21+ moves) |
+| D72 | Keep SCID | SCID is only source (no eco_tsv entries exist) |
+| D73 | Keep SCID | SCID is only source (no eco_tsv entries exist) |
+| D89 | Keep SCID | SCID is one move shallower (38 vs 39); legitimately different positions |
+| E00 | Keep SCID | SCID root (`1.d4 Nf6 2.c4 e6`, 6 moves) is intentionally broad, shallower |
+| E57 | Keep SCID | SCID is only source (no eco_tsv entries exist) |
+| E88 | Keep SCID | SCID is only source (no eco_tsv entries exist) |
+
+**Fixed by:** `scripts/fixStep4Roots.mjs`
 
 ---
 
