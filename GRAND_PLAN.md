@@ -78,24 +78,24 @@ require separate action here.
 
 **Case-by-case verdicts:**
 
-| Code | Verdict | Reason |
-|------|---------|--------|
-| B13 | Move to eco_tsv | SCID root `3...cxd5` is one move too deep; eco_tsv has shallower `3.exd5` |
-| C70 | Move to eco_tsv | SCID root `4.Ba4` (11 moves); eco_tsv has Morphy Defense `3...a6` (9 moves) |
-| C85 | Move to eco_tsv | SCID has `6.Bxc6 dxc6` (18 moves); eco_tsv has `6.Bxc6` (17 moves, one earlier) |
-| E02 | Move to eco_tsv | SCID has `5.Qa4+` (14 moves); eco_tsv has `4...dxc4` (12 moves, shallower) |
-| A79 | Keep SCID | eco_tsv entry at `11.f3` reuses A78's name unchanged; SCID `11.f3 Nc7` introduces the new name |
-| B54 | Keep SCID | SCID root (11 moves) is shallower than all eco_tsv entries (12+ moves) |
-| B56 | Keep SCID | SCID root (14 moves) is shallower than all eco_tsv entries (15+ moves) |
-| C32 | Keep SCID | SCID root (12 moves) is shallower than all eco_tsv entries (14+ moves) |
-| C77 | Keep SCID | SCID root (12 moves) is shallower than all eco_tsv entries (14+ moves) |
-| D56 | Keep SCID | SCID root (20 moves) is shallower than all eco_tsv entries (21+ moves) |
-| D72 | Keep SCID | SCID is only source (no eco_tsv entries exist) |
-| D73 | Keep SCID | SCID is only source (no eco_tsv entries exist) |
-| D89 | Keep SCID | SCID is one move shallower (38 vs 39); legitimately different positions |
-| E00 | Keep SCID | SCID root (`1.d4 Nf6 2.c4 e6`, 6 moves) is intentionally broad, shallower |
-| E57 | Keep SCID | SCID is only source (no eco_tsv entries exist) |
-| E88 | Keep SCID | SCID is only source (no eco_tsv entries exist) |
+| Code | Verdict         | Reason                                                                                         |
+| ---- | --------------- | ---------------------------------------------------------------------------------------------- |
+| B13  | Move to eco_tsv | SCID root `3...cxd5` is one move too deep; eco_tsv has shallower `3.exd5`                      |
+| C70  | Move to eco_tsv | SCID root `4.Ba4` (11 moves); eco_tsv has Morphy Defense `3...a6` (9 moves)                    |
+| C85  | Move to eco_tsv | SCID has `6.Bxc6 dxc6` (18 moves); eco_tsv has `6.Bxc6` (17 moves, one earlier)                |
+| E02  | Move to eco_tsv | SCID has `5.Qa4+` (14 moves); eco_tsv has `4...dxc4` (12 moves, shallower)                     |
+| A79  | Keep SCID       | eco_tsv entry at `11.f3` reuses A78's name unchanged; SCID `11.f3 Nc7` introduces the new name |
+| B54  | Keep SCID       | SCID root (11 moves) is shallower than all eco_tsv entries (12+ moves)                         |
+| B56  | Keep SCID       | SCID root (14 moves) is shallower than all eco_tsv entries (15+ moves)                         |
+| C32  | Keep SCID       | SCID root (12 moves) is shallower than all eco_tsv entries (14+ moves)                         |
+| C77  | Keep SCID       | SCID root (12 moves) is shallower than all eco_tsv entries (14+ moves)                         |
+| D56  | Keep SCID       | SCID root (20 moves) is shallower than all eco_tsv entries (21+ moves)                         |
+| D72  | Keep SCID       | SCID is only source (no eco_tsv entries exist)                                                 |
+| D73  | Keep SCID       | SCID is only source (no eco_tsv entries exist)                                                 |
+| D89  | Keep SCID       | SCID is one move shallower (38 vs 39); legitimately different positions                        |
+| E00  | Keep SCID       | SCID root (`1.d4 Nf6 2.c4 e6`, 6 moves) is intentionally broad, shallower                      |
+| E57  | Keep SCID       | SCID is only source (no eco_tsv entries exist)                                                 |
+| E88  | Keep SCID       | SCID is only source (no eco_tsv entries exist)                                                 |
 
 **Fixed by:** `scripts/fixStep4Roots.mjs`
 
