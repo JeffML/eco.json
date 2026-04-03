@@ -62,3 +62,16 @@ export interface OpeningCollection {
  * [from_fen, to_fen, from_source, to_source]
  */
 export type OpeningTransition = [string, string, OpeningSource, OpeningSource];
+
+/**
+ * Result of splitting an opening name into its PGN header fields.
+ * Mirrors the ECO naming convention: "Opening: Variation, SubVariation"
+ */
+export interface SplitOpeningName {
+  /** The main opening name (before the colon) */
+  opening: string;
+  /** The variation name (after the colon, before the first comma), if present */
+  variation?: string;
+  /** The subvariation name (remainder after the first comma), if present */
+  subVariation?: string;
+}

@@ -27,3 +27,4 @@ export {
   getOpeningsByEcoCategory,
   getEcoRoots,
 } from "../methods/queryOpenings.js";
+export { splitOpeningName } from "../methods/splitOpeningName.js";

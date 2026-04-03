@@ -10239,21 +10239,21 @@
     "name": "Sicilian Defense, classical",
     "moves": "1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 d6 6. Be2 g6",
     "src": "interpolated",
-    "rootSrc": "eco_json",
+    "rootSrc": "eco_js",
     "eco": "B58"
   },
   "r1bqkb1r/pp2pp1p/2np1np1/8/3NP3/2N1B3/PPP1BPPP/R2QK2R b KQkq - 1 7": {
     "name": "Sicilian Defense, classical",
     "moves": "1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 d6 6. Be2 g6 7. Be3",
     "src": "interpolated",
-    "rootSrc": "eco_json",
+    "rootSrc": "eco_js",
     "eco": "B58"
   },
   "r1bqk2r/pp2ppbp/2np1np1/8/3NP3/2N1B3/PPP1BPPP/R2QK2R w KQkq - 2 8": {
     "name": "Sicilian Defense, classical",
     "moves": "1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 d6 6. Be2 g6 7. Be3 Bg7",
     "src": "interpolated",
-    "rootSrc": "eco_json",
+    "rootSrc": "eco_js",
     "eco": "B58"
   },
   "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1B3/PPPQBPPP/R3K2R w KQ - 4 9": {
@@ -16822,7 +16822,7 @@
     "eco": "C46"
   },
   "r1bqkb1r/pppp1ppp/5n2/4n3/3PP3/2N5/PPP2PPP/R1BQKB1R b KQkq - 0 5": {
-    "name": " Halloween Gambit Accepted",
+    "name": "Halloween Gambit Accepted",
     "moves": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5 Nxe5 5. d4",
     "src": "interpolated",
     "rootSrc": "wiki_b",
@@ -16832,7 +16832,7 @@
     }
   },
   "r1bqkb1r/pppp1ppp/5nn1/8/3PP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 1 6": {
-    "name": " Halloween Gambit Accepted",
+    "name": "Halloween Gambit Accepted",
     "moves": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5 Nxe5 5. d4 Ng6",
     "src": "interpolated",
     "rootSrc": "wiki_b",
@@ -16842,7 +16842,7 @@
     }
   },
   "r1bqkb1r/pppp1ppp/5nn1/4P3/3P4/2N5/PPP2PPP/R1BQKB1R b KQkq - 0 6": {
-    "name": " Halloween Gambit Accepted",
+    "name": "Halloween Gambit Accepted",
     "moves": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5 Nxe5 5. d4 Ng6 6. e5",
     "src": "interpolated",
     "rootSrc": "wiki_b",
@@ -16852,7 +16852,7 @@
     }
   },
   "r1bqkbnr/pppp1ppp/6n1/4P3/3P4/2N5/PPP2PPP/R1BQKB1R w KQkq - 1 7": {
-    "name": " Halloween Gambit Accepted",
+    "name": "Halloween Gambit Accepted",
     "moves": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5 Nxe5 5. d4 Ng6 6. e5 Ng8",
     "src": "interpolated",
     "rootSrc": "wiki_b",
@@ -16862,7 +16862,7 @@
     }
   },
   "r1bqkbnr/pppp1ppp/6n1/4P3/2BP4/2N5/PPP2PPP/R1BQK2R b KQkq - 2 7": {
-    "name": " Halloween Gambit Accepted",
+    "name": "Halloween Gambit Accepted",
     "moves": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5 Nxe5 5. d4 Ng6 6. e5 Ng8 7. Bc4",
     "src": "interpolated",
     "rootSrc": "wiki_b",
@@ -16872,7 +16872,7 @@
     }
   },
   "r1bqk1nr/pppp1ppp/6n1/4P3/1bBP4/2N5/PPP2PPP/R1BQK2R w KQkq - 3 8": {
-    "name": " Halloween Gambit Accepted",
+    "name": "Halloween Gambit Accepted",
     "moves": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5 Nxe5 5. d4 Ng6 6. e5 Ng8 7. Bc4 Bb4",
     "src": "interpolated",
     "rootSrc": "wiki_b",
@@ -16882,7 +16882,7 @@
     }
   },
   "r1bqk1nr/pppp1ppp/6n1/4P3/1bBP4/2N2Q2/PPP2PPP/R1B1K2R b KQkq - 4 8": {
-    "name": " Halloween Gambit Accepted",
+    "name": "Halloween Gambit Accepted",
     "moves": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5 Nxe5 5. d4 Ng6 6. e5 Ng8 7. Bc4 Bb4 8. Qf3",
     "src": "interpolated",
     "rootSrc": "wiki_b",
@@ -16892,7 +16892,7 @@
     }
   },
   "r1bqkb1r/pppp1ppp/2n2n2/8/3PP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 1 6": {
-    "name": " Halloween Gambit Accepted",
+    "name": "Halloween Gambit Accepted",
     "moves": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5 Nxe5 5. d4 Nc6",
     "src": "interpolated",
     "rootSrc": "wiki_b",
@@ -16902,7 +16902,7 @@
     }
   },
   "r1bqkb1r/pppp1ppp/2n2n2/3P4/4P3/2N5/PPP2PPP/R1BQKB1R b KQkq - 0 6": {
-    "name": " Halloween Gambit Accepted",
+    "name": "Halloween Gambit Accepted",
     "moves": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5 Nxe5 5. d4 Nc6 6. d5",
     "src": "interpolated",
     "rootSrc": "wiki_b",
@@ -16912,7 +16912,7 @@
     }
   },
   "r1bqkb1r/pppp1ppp/5n2/3Pn3/4P3/2N5/PPP2PPP/R1BQKB1R w KQkq - 1 7": {
-    "name": " Halloween Gambit Accepted",
+    "name": "Halloween Gambit Accepted",
     "moves": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5 Nxe5 5. d4 Nc6 6. d5 Ne5",
     "src": "interpolated",
     "rootSrc": "wiki_b",
@@ -16922,7 +16922,7 @@
     }
   },
   "r1bqkb1r/pppp1ppp/5n2/3Pn3/4PP2/2N5/PPP3PP/R1BQKB1R b KQkq - 0 7": {
-    "name": " Halloween Gambit Accepted",
+    "name": "Halloween Gambit Accepted",
     "moves": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5 Nxe5 5. d4 Nc6 6. d5 Ne5 7. f4",
     "src": "interpolated",
     "rootSrc": "wiki_b",
@@ -16932,7 +16932,7 @@
     }
   },
   "r1bqkb1r/pppp1ppp/5nn1/3P4/4PP2/2N5/PPP3PP/R1BQKB1R w KQkq - 1 8": {
-    "name": " Halloween Gambit Accepted",
+    "name": "Halloween Gambit Accepted",
     "moves": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5 Nxe5 5. d4 Nc6 6. d5 Ne5 7. f4 Ng6",
     "src": "interpolated",
     "rootSrc": "wiki_b",
@@ -16942,7 +16942,7 @@
     }
   },
   "r1bqkb1r/pppp1ppp/5nn1/3PP3/5P2/2N5/PPP3PP/R1BQKB1R b KQkq - 0 8": {
-    "name": " Halloween Gambit Accepted",
+    "name": "Halloween Gambit Accepted",
     "moves": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5 Nxe5 5. d4 Nc6 6. d5 Ne5 7. f4 Ng6 8. e5",
     "src": "interpolated",
     "rootSrc": "wiki_b",
@@ -16952,7 +16952,7 @@
     }
   },
   "r1bqkbnr/pppp1ppp/6n1/3PP3/5P2/2N5/PPP3PP/R1BQKB1R w KQkq - 1 9": {
-    "name": " Halloween Gambit Accepted",
+    "name": "Halloween Gambit Accepted",
     "moves": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5 Nxe5 5. d4 Nc6 6. d5 Ne5 7. f4 Ng6 8. e5 Ng8",
     "src": "interpolated",
     "rootSrc": "wiki_b",
@@ -16962,7 +16962,7 @@
     }
   },
   "r1bqkbnr/pppp1ppp/3P2n1/4P3/5P2/2N5/PPP3PP/R1BQKB1R b KQkq - 0 9": {
-    "name": " Halloween Gambit Accepted",
+    "name": "Halloween Gambit Accepted",
     "moves": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5 Nxe5 5. d4 Nc6 6. d5 Ne5 7. f4 Ng6 8. e5 Ng8 9. d6",
     "src": "interpolated",
     "rootSrc": "wiki_b",
@@ -16972,7 +16972,7 @@
     }
   },
   "r1bqkbnr/pp1p1ppp/3p2n1/4P3/5P2/2N5/PPP3PP/R1BQKB1R w KQkq - 0 10": {
-    "name": " Halloween Gambit Accepted",
+    "name": "Halloween Gambit Accepted",
     "moves": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5 Nxe5 5. d4 Nc6 6. d5 Ne5 7. f4 Ng6 8. e5 Ng8 9. d6 cxd6",
     "src": "interpolated",
     "rootSrc": "wiki_b",
@@ -16982,7 +16982,7 @@
     }
   },
   "r1bqkbnr/pp1p1ppp/3P2n1/8/5P2/2N5/PPP3PP/R1BQKB1R b KQkq - 0 10": {
-    "name": " Halloween Gambit Accepted",
+    "name": "Halloween Gambit Accepted",
     "moves": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5 Nxe5 5. d4 Nc6 6. d5 Ne5 7. f4 Ng6 8. e5 Ng8 9. d6 cxd6 10. exd6",
     "src": "interpolated",
     "rootSrc": "wiki_b",
@@ -16992,7 +16992,7 @@
     }
   },
   "r1b1kbnr/pp1p1ppp/3P1qn1/8/5P2/2N5/PPP3PP/R1BQKB1R w KQkq - 1 11": {
-    "name": " Halloween Gambit Accepted",
+    "name": "Halloween Gambit Accepted",
     "moves": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5 Nxe5 5. d4 Nc6 6. d5 Ne5 7. f4 Ng6 8. e5 Ng8 9. d6 cxd6 10. exd6 Qf6",
     "src": "interpolated",
     "rootSrc": "wiki_b",
@@ -17002,7 +17002,7 @@
     }
   },
   "r1b1kbnr/pp1p1ppp/3P1qn1/1N6/5P2/8/PPP3PP/R1BQKB1R b KQkq - 2 11": {
-    "name": " Halloween Gambit Accepted",
+    "name": "Halloween Gambit Accepted",
     "moves": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5 Nxe5 5. d4 Nc6 6. d5 Ne5 7. f4 Ng6 8. e5 Ng8 9. d6 cxd6 10. exd6 Qf6 11. Nb5",
     "src": "interpolated",
     "rootSrc": "wiki_b",
