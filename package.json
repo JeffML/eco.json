@@ -20,7 +20,7 @@
     "watch": "tsc --watch",
     "clean": "rm -rf dist",
     "type-check": "tsc --noEmit",
-    "prepublishOnly": "npm run clean && npm run build",
+    "prepublishOnly": "npm run clean && npm run build && npm run build:gz",
     "publish:public": "npm publish --access public"
   },
   "keywords": [
