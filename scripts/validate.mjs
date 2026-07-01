@@ -204,8 +204,16 @@ section("Check 6: npm type-check and build");
 section("Check 7: eco_interpolated.json consistency");
 {
   const VALID_SOURCES = new Set([
-    "eco_tsv", "eco_js", "scid", "eco_wikip", "wiki_b",
-    "ct", "chessGraph", "chronos", "icsbot", "pgn",
+    "eco_tsv",
+    "eco_js",
+    "scid",
+    "eco_wikip",
+    "wiki_b",
+    "ct",
+    "chessGraph",
+    "chronos",
+    "icsbot",
+    "pgn",
   ]);
   const validEco = /^[A-E][0-9]{2}$/;
   const mainFens = new Set(Object.keys(all));
@@ -220,25 +228,33 @@ section("Check 7: eco_interpolated.json consistency");
   for (const [fen, entry] of interpEntries) {
     // Must not collide with any main eco file
     if (mainFens.has(fen)) {
-      fail(`Interpolated FEN also appears in ${fenToFile[fen]}: ${fen.slice(0, 60)}`);
+      fail(
+        `Interpolated FEN also appears in ${fenToFile[fen]}: ${fen.slice(0, 60)}`,
+      );
       overlapCount++;
     }
 
     // src must be "interpolated"
     if (entry.src !== "interpolated") {
-      fail(`Interpolated entry has unexpected src "${entry.src}": ${fen.slice(0, 50)}`);
+      fail(
+        `Interpolated entry has unexpected src "${entry.src}": ${fen.slice(0, 50)}`,
+      );
       badSrc++;
     }
 
     // rootSrc must be a known non-interpolated source
     if (!entry.rootSrc || !VALID_SOURCES.has(entry.rootSrc)) {
-      fail(`Interpolated entry has invalid rootSrc "${entry.rootSrc}": ${fen.slice(0, 50)}`);
+      fail(
+        `Interpolated entry has invalid rootSrc "${entry.rootSrc}": ${fen.slice(0, 50)}`,
+      );
       badRootSrc++;
     }
 
     // ECO code must be valid
     if (!entry.eco || !validEco.test(entry.eco)) {
-      fail(`Interpolated entry has invalid eco "${entry.eco}": ${fen.slice(0, 50)}`);
+      fail(
+        `Interpolated entry has invalid eco "${entry.eco}": ${fen.slice(0, 50)}`,
+      );
       badEco++;
     }
 
@@ -253,11 +269,16 @@ section("Check 7: eco_interpolated.json consistency");
     }
   }
 
-  if (overlapCount === 0) pass(`No FEN overlaps between interpolated and ecoA–E files`);
-  if (badSrc === 0) pass(`All ${interpEntries.length} interpolated entries have src="interpolated"`);
+  if (overlapCount === 0)
+    pass(`No FEN overlaps between interpolated and ecoA–E files`);
+  if (badSrc === 0)
+    pass(
+      `All ${interpEntries.length} interpolated entries have src="interpolated"`,
+    );
   if (badRootSrc === 0) pass(`All interpolated entries have a valid rootSrc`);
   if (badEco === 0) pass(`All interpolated entries have valid ECO codes`);
-  if (wsCount === 0) pass(`No whitespace issues in interpolated eco or name fields`);
+  if (wsCount === 0)
+    pass(`No whitespace issues in interpolated eco or name fields`);
 }
 
 // ─── Summary ──────────────────────────────────────────────────────────────────
