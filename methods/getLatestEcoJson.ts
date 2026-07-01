@@ -3,8 +3,7 @@ import { OpeningCollection } from "../src/types.js";
 /**
  * GitHub raw content URL for eco.json repository
  */
-const ECO_JSON_RAW =
-  "https://raw.githubusercontent.com/JeffML/eco.json/master/";
+const ECO_JSON_RAW = "https://raw.githubusercontent.com/JeffML/eco.json/master/";
 
 const OPENINGS_GZ_URL = ECO_JSON_RAW + "openings.json.gz";
 
@@ -42,23 +41,20 @@ let openingsByCat: OpeningsByCat = { initialized: false };
  */
 export async function getLatestEcoJson(): Promise<OpeningsByCat> {
   if (!openingsByCat.initialized) {
-    const ROOT = ECO_JSON_RAW;
-
     openingsByCat = {
       initialized: false,
-      A: { url: ROOT + "ecoA.json" },
-      B: { url: ROOT + "ecoB.json" },
-      C: { url: ROOT + "ecoC.json" },
-      D: { url: ROOT + "ecoD.json" },
-      E: { url: ROOT + "ecoE.json" },
-      IN: { url: ROOT + "eco_interpolated.json" },
+      A: { url: ECO_JSON_RAW + "ecoA.json" },
+      B: { url: ECO_JSON_RAW + "ecoB.json" },
+      C: { url: ECO_JSON_RAW + "ecoC.json" },
+      D: { url: ECO_JSON_RAW + "ecoD.json" },
+      E: { url: ECO_JSON_RAW + "ecoE.json" },
+      IN: { url: ECO_JSON_RAW + "eco_interpolated.json" },
     };
 
     const promises: Promise<Response>[] = [];
     for (const cat in openingsByCat) {
       if (cat !== "initialized") {
-        const category =
-          openingsByCat[cat as keyof Omit<OpeningsByCat, "initialized">];
+        const category = openingsByCat[cat as keyof Omit<OpeningsByCat, "initialized">];
         if (category) {
           promises.push(fetch(category.url));
         }
@@ -70,8 +66,7 @@ export async function getLatestEcoJson(): Promise<OpeningsByCat> {
 
     for (const cat in openingsByCat) {
       if (cat !== "initialized") {
-        const category =
-          openingsByCat[cat as keyof Omit<OpeningsByCat, "initialized">];
+        const category = openingsByCat[cat as keyof Omit<OpeningsByCat, "initialized">];
         if (category) {
           const json = await res[i++].json();
           category.json = json;
