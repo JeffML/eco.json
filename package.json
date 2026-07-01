@@ -16,6 +16,7 @@
   ],
   "scripts": {
     "build": "tsc",
+    "build:gz": "bash scripts/build-openings-gz.sh",
     "watch": "tsc --watch",
     "clean": "rm -rf dist",
     "type-check": "tsc --noEmit",
