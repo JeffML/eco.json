@@ -6,6 +6,10 @@ import { OpeningCollection } from "../src/types.js";
 const ECO_JSON_RAW =
   "https://raw.githubusercontent.com/JeffML/eco.json/master/";
 
+const OPENINGS_GZ_URL = ECO_JSON_RAW + "openings.json.gz";
+
+let mergedCache: OpeningCollection | null = null;
+
 interface EcoCategoryData {
   url: string;
   json?: OpeningCollection;
@@ -83,7 +87,7 @@ export async function getLatestEcoJson(): Promise<OpeningsByCat> {
 
 /**
  * Downloads and merges all opening data (ecoA-E + interpolated) into a single collection.
- * Data is cached after the first call.
+ * Fetches a single gzip-compressed file (~468KB) and caches the result after the first call.
  *
  * @returns Promise resolving to a complete opening collection keyed by FEN
  *
@@ -95,16 +99,16 @@ export async function getLatestEcoJson(): Promise<OpeningsByCat> {
  * ```
  */
 export async function openingBook(): Promise<OpeningCollection> {
-  const { A, B, C, D, E, IN } = await getLatestEcoJson();
+  if (mergedCache) return mergedCache;
 
-  const openingBook: OpeningCollection = {
-    ...A?.json,
-    ...B?.json,
-    ...C?.json,
-    ...D?.json,
-    ...E?.json,
-    ...IN?.json,
-  };
+  const response = await fetch(OPENINGS_GZ_URL);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch openings.json.gz: ${response.status} ${response.statusText}`);
+  }
 
-  return openingBook;
+  const decompressed = response.body!.pipeThrough(new DecompressionStream("gzip"));
+  const text = await new Response(decompressed).text();
+  mergedCache = JSON.parse(text) as OpeningCollection;
+
+  return mergedCache;
 }
