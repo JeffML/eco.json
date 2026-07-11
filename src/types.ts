@@ -1,13 +1,19 @@
 /**
  * Source of the opening data.
  * eco_tsv is the authoritative source from lichess.
+ * eco_wikip = Wikipedia chess openings pages
+ * eco_wikip.g = Wikipedia "List of chess gambits" page (wikiGambits parser)
+ * wiki_b = Wikibooks Chess Opening Theory (wikiChessOpeningTheoryCrawler)
+ * fics = Free Internet Chess Server opening database (parser unknown/missing)
  */
 export type OpeningSource =
   | "eco_tsv"
   | "eco_js"
   | "scid"
   | "eco_wikip"
+  | "eco_wikip.g"
   | "wiki_b"
+  | "fics"
   | "ct"
   | "chessGraph"
   | "chronos"
@@ -36,8 +42,8 @@ export interface Opening {
   /** Common English name of the opening */
   name: string;
 
-  /** Alternative names from other sources */
-  aliases?: Record<string, string>;
+  /** Alternative names from other sources, keyed by OpeningSource */
+  aliases?: Partial<Record<OpeningSource, string>>;
 
   /** Extended SCID code when applicable */
   scid?: string;
