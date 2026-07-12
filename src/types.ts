@@ -1,11 +1,10 @@
 /**
- * Source of the opening data.
- * eco_tsv is the authoritative source from lichess.
- * eco_wikip = Wikipedia chess openings pages
- * eco_wikip.g = Wikipedia "List of chess gambits" page (wikiGambits parser)
- * wiki_b = Wikibooks Chess Opening Theory (wikiChessOpeningTheoryCrawler)
- * fics = Free Internet Chess Server opening database (parser unknown/missing)
+ * Source of the opening data in eco.json.
+ *
+ * eco_tsv is the authoritative source — when it conflicts with any other
+ * source, eco_tsv wins and the other source's name moves to aliases.
  */
+
 export type OpeningSource =
   | "eco_tsv"
   | "eco_js"
@@ -20,6 +19,26 @@ export type OpeningSource =
   | "icsbot"
   | "pgn"
   | "interpolated";
+
+/**
+ * Human-readable metadata for each opening data source.
+ * Useful for UI display, documentation, and debugging.
+ */
+export const SOURCE_META = {
+  eco_tsv: { label: "Lichess", url: "https://github.com/lichess-org/chess-openings" },
+  eco_js: { label: "chess.js / chessops", url: "https://github.com/niklasf/chessops" },
+  scid: { label: "SCID", url: "https://scid.sourceforge.net/" },
+  eco_wikip: { label: "Wikipedia", url: "https://en.wikipedia.org/wiki/Chess_opening" },
+  "eco_wikip.g": { label: "Wikipedia Gambits", url: "https://en.wikipedia.org/wiki/List_of_chess_gambits" },
+  wiki_b: { label: "Wikibooks Opening Theory", url: "https://en.wikibooks.org/wiki/Chess_Opening_Theory" },
+  fics: { label: "FICS", url: "https://www.freechess.org/" },
+  ct: { label: "ChessTempo", url: "https://www.chesstempo.com/" },
+  chessGraph: { label: "Chess-Graph", url: "https://github.com/Destaq/chess-graph" },
+  chronos: { label: "Chronos / pgn-extract", url: "https://www.cs.kent.ac.uk/people/staff/djb/pgn-extract/" },
+  icsbot: { label: "ICS Bot", url: undefined },
+  pgn: { label: "PGN (generic)", url: undefined },
+  interpolated: { label: "Interpolated (generated)", url: undefined },
+} satisfies Record<OpeningSource, { label: string; url?: string }>;
 
 /**
  * ECO category (A-E)
