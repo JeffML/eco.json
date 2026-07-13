@@ -1,4 +1,4 @@
-# @chess-openings/eco.json
+# eco.json (Published as @chess-openings/eco.json)
 
 [![npm version](https://badge.fury.io/js/%40chess-openings%2Feco.json.svg)](https://www.npmjs.com/package/@chess-openings/eco.json)
 [![npm downloads](https://img.shields.io/npm/dm/@chess-openings/eco.json.svg)](https://www.npmjs.com/package/@chess-openings/eco.json)
@@ -36,19 +36,14 @@ import { openingBook, findOpening, getFromTos } from "@chess-openings/eco.json";
 const openings = await openingBook();
 
 // Look up an opening by FEN
-const opening = findOpening(
-  openings,
-  "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1",
-);
+const opening = findOpening(openings, "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1");
 
 console.log(opening?.name); // "King's Pawn Opening"
 console.log(opening?.eco); // "B00"
 console.log(opening?.moves); // "1. e4"
 
 // Get next and previous positions
-const { next, from } = await getFromTos(
-  "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1",
-);
+const { next, from } = await getFromTos("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1");
 
 console.log(next[0]?.name); // "Sicilian Defense"
 console.log(from[0]?.name); // "Starting Position"
@@ -96,11 +91,7 @@ const openings = await openingBook();
 Looks up an opening by FEN with automatic position-only fallback.
 
 ```typescript
-import {
-  findOpening,
-  getPositionBook,
-  openingBook,
-} from "@chess-openings/eco.json";
+import { findOpening, getPositionBook, openingBook } from "@chess-openings/eco.json";
 
 const openings = await openingBook();
 const posBook = getPositionBook(openings);
@@ -124,11 +115,7 @@ This function tries to find an opening match at the current position. If no matc
 
 ```typescript
 import { ChessPGN } from "@chess-pgn/chess-pgn";
-import {
-  openingBook,
-  lookupByMoves,
-  getPositionBook,
-} from "@chess-openings/eco.json";
+import { openingBook, lookupByMoves, getPositionBook } from "@chess-openings/eco.json";
 
 const chess = new ChessPGN();
 chess.loadPgn("1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6");
@@ -173,9 +160,7 @@ Compatible libraries: chess.js, @chess-pgn/chess-pgn, and others with similar AP
 
 ```typescript
 // Many moves deep into a game
-chess.loadPgn(
-  "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3 d6 8. c3 O-O 9. h3 Na5",
-);
+chess.loadPgn("1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3 d6 8. c3 O-O 9. h3 Na5");
 
 const result = lookupByMoves(chess, openings, { maxMovesBack: 10 });
 
@@ -220,10 +205,7 @@ console.log(`Found ${caroKann.length} variations`);
 Returns all openings for an ECO category (A, B, C, D, or E).
 
 ```typescript
-import {
-  getOpeningsByEcoCategory,
-  openingBook,
-} from "@chess-openings/eco.json";
+import { getOpeningsByEcoCategory, openingBook } from "@chess-openings/eco.json";
 
 // Get all semi-open games (category B)
 const semiOpen = await getOpeningsByEcoCategory("B");

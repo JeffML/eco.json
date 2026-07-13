@@ -24,6 +24,8 @@
     "publish:public": "npm publish --access public"
   },
   "keywords": [
+    "eco.json",
+    "chess-openings",
     "chess",
     "openings",
     "eco",

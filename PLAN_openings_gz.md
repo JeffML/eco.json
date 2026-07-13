@@ -89,7 +89,22 @@ _Depends on Step 4._
 - Add export to `src/chessPGN.ts` entry point
 - Run `npm run api:update` to record new API surface
 
-_Steps 6-8 parallel with Phase 3. Depends on Phase 2 being published._
+**Step 9** — Document multi-game annotation pattern in docs
+
+- `annotateOpenings()` mutates a single `IChessGame` in place; `game.pgn()` returns the annotated PGN string
+- For multi-game PGN files, document the expected pattern:
+  ```typescript
+  const parts: string[] = [];
+  for await (const game of cursor) {
+    await annotateOpenings(game, opts);
+    parts.push(game.pgn());
+  }
+  const multiGamePgn = parts.join("\n\n");
+  ```
+- No built-in multi-game reassembly method — this is intentional (trivial for callers, avoids over-engineering)
+- Note: `openingBook()` is fetched once and cached; no per-game network overhead
+
+_Steps 6-9 parallel with Phase 3. Depends on Phase 2 being published._
 
 ---
 
