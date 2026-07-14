@@ -14,7 +14,7 @@ TypeScript utilities for consuming chess opening data from the eco.json data fil
 
 ## Features
 
-- 🎯 **12,000+ chess openings** with ECO codes, move sequences, and names (plus aliases)
+- 🎯 **12,500+ chess openings** with ECO codes, move sequences, and names (plus aliases)
 - 🔍 **FEN-based lookup** with automatic position-only fallback
 - 🌐 **On-demand data loading** from GitHub (no bundled files)
 - 🔄 **Opening transitions** with next/previous position navigation
